@@ -17,5 +17,12 @@ class DeploymentPageTests(unittest.TestCase):
         self.assertIn("https://gitflow-analyzer.onrender.com/", html)
 
 
+    def test_feature_change_targets_develop_before_release(self):
+        html = PAGE.read_text(encoding="utf-8")
+        self.assertIn("Feature integration sample", html)
+        self.assertIn("feature/*", html)
+        self.assertIn("release/*", html)
+
+
 if __name__ == "__main__":
     unittest.main()
